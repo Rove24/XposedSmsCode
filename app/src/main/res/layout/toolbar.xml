@@ -1,0 +1,10 @@
+<com.google.android.material.appbar.MaterialToolbar
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/toolbar"
+    android:layout_width="match_parent"
+    android:layout_height="?attr/actionBarSize"
+    android:background="@color/m3_background"
+    app:titleTextColor="@color/m3_on_surface"
+    app:navigationIconTint="@color/m3_on_surface"
+    app:titleTextAppearance="@style/TextAppearance.Material3.TitleLarge" />

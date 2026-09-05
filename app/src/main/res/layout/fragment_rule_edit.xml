@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/m3_background"
+    android:orientation="vertical">
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/rule_company_input_layout"
+        style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="16dp"
+        app:boxCornerRadiusBottomEnd="16dp"
+        app:boxCornerRadiusBottomStart="16dp"
+        app:boxCornerRadiusTopEnd="16dp"
+        app:boxCornerRadiusTopStart="16dp"
+        app:boxStrokeColor="@color/m3_primary"
+        app:hintTextColor="@color/m3_primary"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/rule_company_edit_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/rule_company_hint"
+            android:imeOptions="actionNext"
+            android:maxLines="1"
+            android:singleLine="true"
+            android:textColor="@color/m3_on_surface" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/rule_keyword_input_layout"
+        style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        app:boxCornerRadiusBottomEnd="16dp"
+        app:boxCornerRadiusBottomStart="16dp"
+        app:boxCornerRadiusTopEnd="16dp"
+        app:boxCornerRadiusTopStart="16dp"
+        app:boxStrokeColor="@color/m3_primary"
+        app:hintTextColor="@color/m3_primary"
+        app:layout_constraintEnd_toEndOf="@+id/rule_company_input_layout"
+        app:layout_constraintStart_toStartOf="@+id/rule_company_input_layout"
+        app:layout_constraintTop_toBottomOf="@+id/rule_company_input_layout">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/rule_keyword_edit_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/rule_keyword_hint"
+            android:imeOptions="actionNext"
+            android:maxLines="1"
+            android:singleLine="true"
+            android:textColor="@color/m3_on_surface" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/rule_code_regex_input_layout"
+        style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="10dp"
+        app:boxCornerRadiusBottomEnd="16dp"
+        app:boxCornerRadiusBottomStart="16dp"
+        app:boxCornerRadiusTopEnd="16dp"
+        app:boxCornerRadiusTopStart="16dp"
+        app:boxStrokeColor="@color/m3_primary"
+        app:hintTextColor="@color/m3_primary"
+        app:layout_constraintEnd_toStartOf="@+id/rule_code_regex_quick_choose"
+        app:layout_constraintStart_toStartOf="@+id/rule_keyword_input_layout"
+        app:layout_constraintTop_toBottomOf="@+id/rule_keyword_input_layout">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/rule_code_regex_edit_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="monospace"
+            android:hint="@string/rule_code_regex_hint"
+            android:imeOptions="actionDone"
+            android:maxLines="1"
+            android:singleLine="true"
+            android:textColor="@color/m3_on_surface" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <TextView
+        android:id="@+id/rule_code_regex_quick_choose"
+        android:layout_width="wrap_content"
+        android:layout_height="56dp"
+        android:background="@drawable/bg_m3_button_tonal"
+        android:gravity="center"
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp"
+        android:text="@string/quick_choose"
+        android:textColor="@color/m3_button_tonal_fg"
+        android:textSize="14sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/rule_code_regex_input_layout"
+        app:layout_constraintEnd_toEndOf="@+id/rule_company_input_layout"
+        app:layout_constraintTop_toTopOf="@+id/rule_code_regex_input_layout" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

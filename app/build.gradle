@@ -1,0 +1,251 @@
+apply plugin: 'com.android.application'
+apply plugin: 'org.greenrobot.greendao' // apply greenDao plugin
+// apply from: 'and-res-guard.gradle'
+
+def keyFile = file(findProperty("tianma.keystore.path") as String)
+def propertyFile = file(findProperty("tianma.signature.path") as String)
+
+def keyProps = new Properties()
+if (propertyFile.exists()) {
+    keyProps.load(new FileInputStream(propertyFile))
+}
+
+def static releaseTime() {
+    return new Date().format("yyMMdd", TimeZone.default)
+}
+
+def VERSION_NAME = "0.0.13"
+def VERSION_CODE = 13
+
+android {
+    namespace 'com.github.rove24.xposed.smscode'
+
+    compileSdk 34
+    defaultConfig {
+        applicationId "com.github.rove24.xposed.smscode"
+        minSdkVersion 23
+        targetSdkVersion 34
+        versionCode VERSION_CODE
+        versionName VERSION_NAME
+
+        buildConfigField("String", "LOG_TAG", "\"XSmsCode\"")
+        buildConfigField("int", "MODULE_VERSION", "" + VERSION_CODE)
+        resConfigs 'en', 'zh-rCN', 'zh-rTW'
+
+        // vectorDrawables.generatedDensities = ['hdpi']
+
+
+        javaCompileOptions {
+            annotationProcessorOptions {
+                arguments = [ eventBusIndex : 'com.tianma.xsmscode.data.eventbus.MyEventBusIndex' ]
+            }
+        }
+    }
+
+    signingConfigs {
+        release {
+            storeFile keyFile
+            storePassword keyProps['STORE_PASSWORD']
+            keyAlias keyProps['KEY_ALIAS']
+            keyPassword keyProps['KEY_PASSWORD']
+        }
+    }
+
+    buildTypes {
+        debug {
+            buildConfigField("int", "LOG_LEVEL", "2")
+            buildConfigField("boolean", "LOG_TO_XPOSED", "true")
+
+            if (keyFile.exists()) {
+                signingConfig signingConfigs.release
+            }
+        }
+
+        alpha {
+            minifyEnabled true
+            shrinkResources true
+            zipAlignEnabled true
+            debuggable  true
+
+            buildConfigField("int", "LOG_LEVEL", "2")
+            buildConfigField("boolean", "LOG_TO_XPOSED", "true")
+
+            if (keyFile.exists()) {
+                signingConfig signingConfigs.release
+            }
+
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+
+        release {
+            minifyEnabled true
+            shrinkResources true
+            zipAlignEnabled true
+
+            buildConfigField("int", "LOG_LEVEL", "4")
+            buildConfigField("boolean", "LOG_TO_XPOSED", "true")
+            if (keyFile.exists()) {
+                signingConfig signingConfigs.release
+            } else {
+                signingConfig signingConfigs.debug
+            }
+
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+
+            lintOptions {
+                disable 'MissingTranslation'
+                checkReleaseBuilds false
+            }
+
+            packagingOptions {
+                resources {
+                    merges += "META-INF/xposed/*"
+                }
+                exclude '**/*.kotlin_*'
+            }
+        }
+    }
+
+    applicationVariants.all { variant ->
+        variant.outputs.all { output ->
+            output.outputFileName = "XposedSmsCode.apk"
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_11
+        targetCompatibility JavaVersion.VERSION_11
+    }
+
+    packagingOptions {
+        resources {
+            merges += "META-INF/xposed/*"
+        }
+        exclude '**/*.kotlin_*'
+    }
+}
+
+tasks.withType(JavaCompile).configureEach {
+    options.fork = true
+    options.forkOptions.jvmArgs += [
+        '--add-exports=jdk.compiler/com.sun.tools.javac.api=ALL-UNNAMED',
+        '--add-exports=jdk.compiler/com.sun.tools.javac.code=ALL-UNNAMED',
+        '--add-exports=jdk.compiler/com.sun.tools.javac.file=ALL-UNNAMED',
+        '--add-exports=jdk.compiler/com.sun.tools.javac.parser=ALL-UNNAMED',
+        '--add-exports=jdk.compiler/com.sun.tools.javac.processing=ALL-UNNAMED',
+        '--add-exports=jdk.compiler/com.sun.tools.javac.tree=ALL-UNNAMED',
+        '--add-exports=jdk.compiler/com.sun.tools.javac.util=ALL-UNNAMED',
+        '--add-exports=jdk.compiler/com.sun.tools.javac.jvm=ALL-UNNAMED',
+        '--add-opens=jdk.compiler/com.sun.tools.javac.api=ALL-UNNAMED',
+        '--add-opens=jdk.compiler/com.sun.tools.javac.code=ALL-UNNAMED',
+        '--add-opens=jdk.compiler/com.sun.tools.javac.file=ALL-UNNAMED',
+        '--add-opens=jdk.compiler/com.sun.tools.javac.parser=ALL-UNNAMED',
+        '--add-opens=jdk.compiler/com.sun.tools.javac.processing=ALL-UNNAMED',
+        '--add-opens=jdk.compiler/com.sun.tools.javac.tree=ALL-UNNAMED',
+        '--add-opens=jdk.compiler/com.sun.tools.javac.util=ALL-UNNAMED',
+        '--add-opens=jdk.compiler/com.sun.tools.javac.jvm=ALL-UNNAMED'
+    ]
+}
+
+greendao {
+    schemaVersion 8
+}
+
+ext {
+    butterKnifeVersion = "10.2.3" // butter knife
+
+    materialDialogVersion = "0.9.6.0" // material dialog version
+
+    andriodShellVersion = "1.0.0" // Android Shell
+
+    eventBusVersion = "3.3.1" // event bus
+
+    greenDaoVersion = "3.3.0" // green dao
+    greenDaoHelperVersion = "v2.1.0" // green dao helper
+
+    gsonVersion = "2.9.0" // gson
+
+    dagger2Version = "2.40.5" // dagger 2
+
+    rxJavaVersion = "2.2.17" // RxJava 2
+    rxAndroidVersion = "2.1.1" // RxAndroid 2
+
+    okHttpVersion = "4.4.0" // OkHttp
+    retrofitVersion = "2.9.0" // retrofit
+
+    jsoupVersion = "1.15.1" // jsoup
+
+    cyaneaVersion = "1.0.2" // cyanea
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation "androidx.appcompat:appcompat:1.6.1"
+    implementation "com.google.android.material:material:1.10.0" // material design support
+    implementation "androidx.recyclerview:recyclerview:1.3.2" // recycler view
+    implementation "androidx.browser:browser:1.7.0" // custom tabs
+    implementation "androidx.preference:preference:1.2.1" // preference support
+    implementation "androidx.constraintlayout:constraintlayout:2.1.4" // constraint layout
+    implementation "androidx.swiperefreshlayout:swiperefreshlayout:1.1.0" // swipe refresh layout
+
+    // ButterKnife
+    implementation "com.jakewharton:butterknife:$butterKnifeVersion"
+    annotationProcessor "com.jakewharton:butterknife-compiler:$butterKnifeVersion"
+
+    // Xposed
+    compileOnly 'io.github.libxposed:api:102.0.0'
+    compileOnly 'de.robv.android.xposed:api:82'
+    // compileOnly 'de.robv.android.xposed:api:82:sources'
+
+    // Material Dialogs
+    implementation "com.afollestad.material-dialogs:core:$materialDialogVersion"
+
+    // Android Shell
+    // implementation "com.jaredrummler:android-shell:$andriodShellVersion"
+
+    // EventBus
+    implementation "org.greenrobot:eventbus:$eventBusVersion"
+    // EventBus annotation processor
+    annotationProcessor "org.greenrobot:eventbus-annotation-processor:$eventBusVersion"
+
+    // GreenDao
+    implementation "org.greenrobot:greendao:$greenDaoVersion"
+    // GreenDao Upgrade Helper
+    implementation "com.github.yuweiguocn:GreenDaoUpgradeHelper:$greenDaoHelperVersion"
+
+    // Gson
+    implementation "com.google.code.gson:gson:$gsonVersion"
+
+    // dagger2
+    implementation "com.google.dagger:dagger:$dagger2Version"
+    annotationProcessor "com.google.dagger:dagger-compiler:$dagger2Version"
+    // dagger2-android
+    implementation "com.google.dagger:dagger-android:$dagger2Version"
+    implementation "com.google.dagger:dagger-android-support:$dagger2Version"
+    annotationProcessor "com.google.dagger:dagger-android-processor:$dagger2Version"
+
+    // RxJava 2
+    implementation "io.reactivex.rxjava2:rxjava:$rxJavaVersion"
+    // RxAndroid 2
+    implementation "io.reactivex.rxjava2:rxandroid:$rxAndroidVersion"
+
+    // OkHttp
+    implementation "com.squareup.okhttp3:okhttp:$okHttpVersion"
+    // OkHttp logging interceptor
+    implementation "com.squareup.okhttp3:logging-interceptor:$okHttpVersion"
+
+    // Retrofit
+    implementation "com.squareup.retrofit2:retrofit:$retrofitVersion"
+    // Retrofit Gson converter
+    implementation "com.squareup.retrofit2:converter-gson:$retrofitVersion"
+    // Retrofit scalars converter
+    implementation "com.squareup.retrofit2:converter-scalars:$retrofitVersion"
+    // Retrofit RxJava Adapter
+    implementation "com.squareup.retrofit2:adapter-rxjava2:$retrofitVersion"
+
+    // JSoup
+    implementation "org.jsoup:jsoup:$jsoupVersion"
+
+    // Cyanea
+    // implementation "com.jaredrummler:cyanea:$cyaneaVersion"
+}

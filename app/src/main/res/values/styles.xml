@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools">
+
+    <style name="AppNoActionBarTheme" parent="Theme.Material3.DayNight.NoActionBar">
+        <item name="android:windowBackground">@color/m3_background</item>
+        <item name="android:colorBackground">@color/m3_background</item>
+        <item name="colorSurface">@color/m3_surface</item>
+        <item name="colorOnSurface">@color/m3_on_surface</item>
+        <item name="colorSurfaceVariant">@color/m3_surface_variant</item>
+        <item name="colorOnSurfaceVariant">@color/m3_on_surface_variant</item>
+        <item name="colorSurfaceContainer">@color/m3_surface_container</item>
+        <item name="colorSurfaceContainerHigh">@color/m3_surface_container_high</item>
+        <item name="colorSurfaceContainerHighest">@color/m3_surface_container_highest</item>
+        <item name="colorPrimary">@color/m3_primary</item>
+        <item name="colorOnPrimary">@color/m3_on_primary</item>
+        <item name="colorPrimaryContainer">@color/m3_primary_container</item>
+        <item name="colorOnPrimaryContainer">@color/m3_on_primary_container</item>
+        <item name="colorSecondary">@color/m3_secondary</item>
+        <item name="colorSecondaryContainer">@color/m3_secondary_container</item>
+        <item name="colorOnSecondaryContainer">@color/m3_on_secondary_container</item>
+        <item name="colorOutline">@color/m3_outline</item>
+        <item name="colorOutlineVariant">@color/m3_outline_variant</item>
+
+        <item name="android:statusBarColor">@color/m3_background</item>
+        <item name="android:navigationBarColor">@color/m3_background</item>
+
+        <item name="preferenceTheme">@style/MyPreferenceStyle</item>
+        <item name="alertDialogTheme">@style/Theme.App.MaterialAlertDialog</item>
+        <item name="materialAlertDialogTheme">@style/ThemeOverlay.App.MaterialAlertDialog</item>
+    </style>
+
+    <style name="AppActionBarTheme" parent="Theme.Material3.DayNight">
+        <item name="android:windowBackground">@color/m3_background</item>
+        <item name="android:colorBackground">@color/m3_background</item>
+        <item name="colorPrimary">@color/m3_primary</item>
+        <item name="colorOnPrimary">@color/m3_on_primary</item>
+        <item name="preferenceTheme">@style/MyPreferenceStyle</item>
+        <item name="alertDialogTheme">@style/Theme.App.MaterialAlertDialog</item>
+        <item name="materialAlertDialogTheme">@style/ThemeOverlay.App.MaterialAlertDialog</item>
+    </style>
+
+    <style name="MyPreferenceStyle" parent="@style/PreferenceThemeOverlay">
+        <item name="preferenceCategoryStyle">@style/MyPreferenceCategoryStyle</item>
+        <item name="switchPreferenceStyle">@style/MySwitchPreferenceStyle</item>
+        <item name="switchPreferenceCompatStyle">@style/MySwitchPreferenceStyle</item>
+    </style>
+
+    <style name="MyPreferenceCategoryStyle" parent="@style/Preference.Category">
+        <item name="android:layout" tools:ignore="PrivateResource">@layout/preference_category</item>
+    </style>
+
+    <style name="MySwitchPreferenceStyle" parent="@style/Preference.SwitchPreferenceCompat.Material">
+        <item name="switchStyle">@style/Widget.XSmsCode.Switch</item>
+    </style>
+
+    <style name="Widget.XSmsCode.Switch" parent="Widget.Material3.CompoundButton.MaterialSwitch">
+        <item name="trackTint">@color/m3_switch_track_tint</item>
+        <item name="thumbTint">@color/m3_switch_thumb_tint</item>
+    </style>
+
+    <style name="Theme.App.MaterialAlertDialog" parent="Theme.Material3.DayNight.Dialog.Alert">
+        <item name="colorSurface">@color/m3_dialog_background</item>
+        <item name="shapeAppearanceOverlay">@style/ShapeAppearance.XSmsCode.Dialog</item>
+        <item name="materialAlertDialogTitleTextStyle">@style/TextAppearance.XSmsCode.Dialog.Title</item>
+        <item name="materialAlertDialogBodyTextStyle">@style/TextAppearance.XSmsCode.Dialog.Body</item>
+        <item name="buttonBarPositiveButtonStyle">@style/Widget.XSmsCode.Dialog.Button.Positive</item>
+        <item name="buttonBarNegativeButtonStyle">@style/Widget.XSmsCode.Dialog.Button.Negative</item>
+        <item name="buttonBarNeutralButtonStyle">@style/Widget.XSmsCode.Dialog.Button.Neutral</item>
+    </style>
+
+    <style name="ThemeOverlay.App.MaterialAlertDialog" parent="ThemeOverlay.Material3.MaterialAlertDialog">
+        <item name="shapeAppearanceOverlay">@style/ShapeAppearance.XSmsCode.Dialog</item>
+        <item name="colorSurface">@color/m3_dialog_background</item>
+        <item name="materialAlertDialogTitleTextStyle">@style/TextAppearance.XSmsCode.Dialog.Title</item>
+        <item name="materialAlertDialogBodyTextStyle">@style/TextAppearance.XSmsCode.Dialog.Body</item>
+        <item name="buttonBarPositiveButtonStyle">@style/Widget.XSmsCode.Dialog.Button.Positive</item>
+        <item name="buttonBarNegativeButtonStyle">@style/Widget.XSmsCode.Dialog.Button.Negative</item>
+        <item name="buttonBarNeutralButtonStyle">@style/Widget.XSmsCode.Dialog.Button.Neutral</item>
+    </style>
+
+    <style name="TextAppearance.XSmsCode.Dialog.Title" parent="TextAppearance.Material3.TitleLarge">
+        <item name="android:textColor">@color/m3_on_surface</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">20sp</item>
+    </style>
+
+    <style name="TextAppearance.XSmsCode.Dialog.Body" parent="TextAppearance.Material3.BodyMedium">
+        <item name="android:textColor">@color/m3_on_surface_variant</item>
+        <item name="android:lineSpacingExtra">4dp</item>
+    </style>
+
+    <style name="ShapeAppearance.XSmsCode.Dialog" parent="ShapeAppearance.Material3.Corner.ExtraLarge">
+        <item name="cornerSize">28dp</item>
+    </style>
+
+    <style name="Widget.XSmsCode.Dialog.Button.Positive" parent="Widget.Material3.Button">
+        <item name="shapeAppearanceOverlay">@style/ShapeAppearance.XSmsCode.Pill</item>
+        <item name="backgroundTint">@color/m3_button_primary_bg</item>
+        <item name="android:textColor">@color/m3_button_primary_fg</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:minHeight">44dp</item>
+    </style>
+
+    <style name="Widget.XSmsCode.Dialog.Button.Negative" parent="Widget.Material3.Button.TonalButton">
+        <item name="shapeAppearanceOverlay">@style/ShapeAppearance.XSmsCode.Pill</item>
+        <item name="backgroundTint">@color/m3_button_tonal_bg</item>
+        <item name="android:textColor">@color/m3_button_tonal_fg</item>
+        <item name="android:minHeight">44dp</item>
+    </style>
+
+    <style name="Widget.XSmsCode.Dialog.Button.Neutral" parent="Widget.Material3.Button.TextButton">
+        <item name="shapeAppearanceOverlay">@style/ShapeAppearance.XSmsCode.Pill</item>
+        <item name="android:textColor">@color/m3_primary</item>
+        <item name="android:minHeight">44dp</item>
+    </style>
+
+    <style name="Widget.XSmsCode.Card" parent="Widget.Material3.CardView.Filled">
+        <item name="cardBackgroundColor">@color/m3_card_background</item>
+        <item name="shapeAppearanceOverlay">@style/ShapeAppearance.XSmsCode.ExtraLarge</item>
+        <item name="cardElevation">0dp</item>
+        <item name="strokeWidth">0dp</item>
+    </style>
+
+    <style name="ShapeAppearance.XSmsCode.ExtraLarge" parent="ShapeAppearance.Material3.Corner.ExtraLarge">
+        <item name="cornerSize">@dimen/m3_card_corner_radius</item>
+    </style>
+
+    <style name="ShapeAppearance.XSmsCode.Pill" parent="ShapeAppearance.Material3.Corner.Full">
+        <item name="cornerSize">24dp</item>
+    </style>
+
+</resources>

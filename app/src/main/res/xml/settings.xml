@@ -1,0 +1,236 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <PreferenceCategory
+        android:title="@string/pref_general_title"
+        app:iconSpaceReserved="false">
+
+        <SwitchPreferenceCompat
+            android:defaultValue="true"
+            android:key="@string/pref_enable"
+            android:summary="@string/pref_enable_summary"
+            android:title="@string/pref_enable_title"
+            app:iconSpaceReserved="false"/>
+
+        <SwitchPreferenceCompat
+            android:defaultValue="false"
+            android:key="@string/pref_hide_launcher_icon"
+            android:summary="@string/pref_hide_launcher_icon_summary"
+            android:title="@string/pref_hide_launcher_icon_title"
+            app:iconSpaceReserved="false"/>
+
+        <Preference
+            android:key="@string/pref_choose_theme"
+            android:title="@string/pref_choose_theme_title"
+            app:iconSpaceReserved="false"/>
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:title="@string/pref_sms_code_title"
+        app:iconSpaceReserved="false">
+
+        <SwitchPreferenceCompat
+            android:defaultValue="true"
+            android:dependency="@string/pref_enable"
+            android:key="@string/pref_show_toast"
+            android:summary="@string/pref_show_toast_summary"
+            android:title="@string/pref_show_toast_title"
+            app:iconSpaceReserved="false"/>
+
+        <SwitchPreferenceCompat
+            android:defaultValue="false"
+            android:dependency="@string/pref_enable"
+            android:key="@string/pref_copy_to_clipboard"
+            android:summary="@string/pref_copy_to_clipboard_summary"
+            android:title="@string/pref_copy_to_clipboard_title"
+            app:iconSpaceReserved="false"/>
+
+        <SwitchPreferenceCompat
+            android:defaultValue="false"
+            android:dependency="@string/pref_enable"
+            android:key="@string/pref_block_sms"
+            android:summary="@string/pref_block_sms_summary"
+            android:title="@string/pref_block_sms_title"
+            app:iconSpaceReserved="false"/>
+
+        <SwitchPreferenceCompat
+            android:defaultValue="false"
+            android:dependency="@string/pref_enable"
+            android:key="@string/pref_deduplicate_sms"
+            android:title="@string/pref_deduplicate_sms_title"
+            android:summary="@string/pref_deduplicate_sms_summary"
+            app:iconSpaceReserved="false"/>
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:title="@string/pref_category_auto_input_title"
+        app:iconSpaceReserved="false">
+        <SwitchPreferenceCompat
+            android:defaultValue="true"
+            android:dependency="@string/pref_enable"
+            android:key="@string/pref_enable_auto_input_code"
+            android:summary="@string/pref_enable_auto_input_code_summary"
+            android:title="@string/pref_enable_auto_input_code_title"
+            app:iconSpaceReserved="false"/>
+
+        <EditTextPreference
+            android:defaultValue="@string/pref_enable_auto_input_code_default"
+            android:dependency="@string/pref_enable_auto_input_code"
+            android:key="@string/pref_auto_input_code_delay"
+            android:summary="@string/pref_auto_input_code_delay_summary"
+            android:title="@string/pref_auto_input_code_delay_title"
+            app:iconSpaceReserved="false"/>
+
+        <Preference
+            android:dependency="@string/pref_enable_auto_input_code"
+            android:key="@string/pref_app_block_entry"
+            android:summary="@string/app_block_summary"
+            android:title="@string/app_block_settings"
+            app:iconSpaceReserved="false"/>
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:title="@string/pref_notification_title"
+        app:iconSpaceReserved="false">
+
+        <SwitchPreferenceCompat
+            android:defaultValue="true"
+            android:dependency="@string/pref_enable"
+            android:key="@string/pref_show_code_notification"
+            android:summary="@string/pref_show_code_notification_summary"
+            android:title="@string/pref_show_code_notification_title"
+            app:iconSpaceReserved="false"/>
+
+        <SwitchPreferenceCompat
+            android:defaultValue="false"
+            android:dependency="@string/pref_show_code_notification"
+            android:key="@string/pref_auto_cancel_notification"
+            android:summary="@string/pref_auto_cancel_notification_summary"
+            android:title="@string/pref_auto_cancel_notification_title"
+            app:iconSpaceReserved="false"/>
+
+        <ListPreference
+            android:defaultValue="@string/notification_retention_time_5_secs"
+            android:dependency="@string/pref_auto_cancel_notification"
+            android:entries="@array/notification_retention_time_entry_list"
+            android:entryValues="@array/notification_retention_time_list"
+            android:key="@string/pref_notification_retention_time"
+            android:summary="@string/pref_notification_retention_time_summary"
+            android:title="@string/pref_notification_retention_time_title"
+            app:iconSpaceReserved="false"/>
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:title="@string/pref_code_records_title"
+        app:iconSpaceReserved="false">
+        <SwitchPreferenceCompat
+            android:defaultValue="true"
+            android:dependency="@string/pref_enable"
+            android:key="@string/pref_enable_code_records"
+            android:title="@string/pref_enable_code_records_title"
+            app:iconSpaceReserved="false"/>
+
+        <Preference
+            android:key="@string/pref_entry_code_records"
+            android:persistent="false"
+            android:summary="@string/pref_entry_code_records_summary"
+            android:title="@string/pref_entry_code_records_title"
+            app:iconSpaceReserved="false"/>
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:title="@string/pref_match_rules"
+        app:iconSpaceReserved="false">
+
+        <com.tianma.xsmscode.common.preference.ResetEditPreference
+            android:defaultValue="@string/default_smscode_keywords"
+            android:hint="@string/code_keywords_hint"
+            android:key="@string/pref_smscode_keywords"
+            android:negativeButtonText="@string/reset"
+            android:summary="@string/pref_smscode_keywords_summary"
+            android:title="@string/pref_smscode_keywords_title"
+            app:iconSpaceReserved="false"/>
+
+        <Preference
+            android:key="@string/pref_code_rules"
+            android:persistent="false"
+            android:summary="@string/pref_code_rules_summary"
+            android:title="@string/pref_code_rules_title"
+            app:iconSpaceReserved="false"/>
+
+        <Preference
+            android:hint="@string/sms_content_hint"
+            android:key="@string/pref_smscode_test"
+            android:persistent="false"
+            android:positiveButtonText="@string/test"
+            android:summary="@string/pref_smscode_test_summary"
+            android:title="@string/pref_smscode_test_title"
+            app:iconSpaceReserved="false"/>
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:key="@string/pref_experimental"
+        android:title="@string/pref_experimental_title"
+        app:iconSpaceReserved="false">
+
+        <SwitchPreferenceCompat
+            android:defaultValue="false"
+            android:dependency="@string/pref_enable"
+            android:key="@string/pref_mark_as_read"
+            android:summary="@string/pref_mark_as_read_summary"
+            android:title="@string/pref_mark_as_read_title"
+            app:iconSpaceReserved="false"/>
+
+        <SwitchPreferenceCompat
+            android:dependency="@string/pref_enable"
+            android:key="@string/pref_delete_sms"
+            android:summary="@string/pref_delete_sms_summary"
+            android:title="@string/pref_delete_sms_title"
+            app:iconSpaceReserved="false"/>
+
+        <SwitchPreferenceCompat
+            android:defaultValue="false"
+            android:dependency="@string/pref_enable"
+            android:key="@string/pref_kill_me"
+            android:summary="@string/pref_kill_me_summary"
+            android:title="@string/pref_kill_me_title"
+            app:iconSpaceReserved="false"/>
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:title="@string/pref_others_title"
+        app:iconSpaceReserved="false">
+        <SwitchPreferenceCompat
+            android:defaultValue="false"
+            android:dependency="@string/pref_enable"
+            android:key="@string/pref_verbose_log_mode"
+            android:summary="@string/pref_verbose_log_mode_summary"
+            android:title="@string/pref_verbose_log_mode_title"
+            app:iconSpaceReserved="false"/>
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:key="@string/pref_about"
+        android:title="@string/pref_about_title"
+        app:iconSpaceReserved="false">
+
+        <Preference
+            android:key="@string/pref_version"
+            android:summary="@string/pref_version_summary"
+            android:title="@string/pref_version_title"
+            app:iconSpaceReserved="false"/>
+
+        <Preference
+            android:key="@string/pref_source_code"
+            android:summary="@string/pref_source_code_summary"
+            android:title="@string/pref_source_code_title"
+            app:iconSpaceReserved="false"/>
+
+        <Preference
+            android:key="@string/pref_privacy_policy"
+            android:title="@string/pref_privacy_policy_title"
+            app:iconSpaceReserved="false"/>
+    </PreferenceCategory>
+
+</PreferenceScreen>

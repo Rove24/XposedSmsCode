@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Root Window & Top Bar Background (Google Messages Light) -->
+    <color name="m3_background">#F0F4F9</color>
+    <color name="m3_card_background">#FFFFFF</color>
+    <color name="m3_dialog_background">#F8FAFD</color>
+
+    <color name="colorPrimary">#0B57D0</color>
+    <color name="colorPrimaryDark">#F0F4F9</color>
+    <color name="colorAccent">#0B57D0</color>
+
+    <!-- Material 3 Expressive Light Palette -->
+    <color name="m3_primary">#0B57D0</color>
+    <color name="m3_on_primary">#FFFFFF</color>
+    <color name="m3_primary_container">#D3E3FD</color>
+    <color name="m3_on_primary_container">#041E49</color>
+
+    <color name="m3_secondary">#00639B</color>
+    <color name="m3_secondary_container">#C2E7FF</color>
+    <color name="m3_on_secondary_container">#001D35</color>
+
+    <color name="m3_surface">#F0F4F9</color>
+    <color name="m3_on_surface">#1F1F1F</color>
+    <color name="m3_surface_variant">#E1E2EC</color>
+    <color name="m3_on_surface_variant">#44474E</color>
+
+    <color name="m3_surface_container">#FFFFFF</color>
+    <color name="m3_surface_container_low">#F8FAFD</color>
+    <color name="m3_surface_container_high">#E9EEF6</color>
+    <color name="m3_surface_container_highest">#E0E8F3</color>
+
+    <color name="m3_category_title">#0B57D0</color>
+
+    <!-- Switch Colors -->
+    <color name="m3_switch_track_on">#0B57D0</color>
+    <color name="m3_switch_thumb_on">#FFFFFF</color>
+    <color name="m3_switch_track_off">#E1E2EC</color>
+    <color name="m3_switch_thumb_off">#74777F</color>
+
+    <!-- M3 Button Colors -->
+    <color name="m3_button_primary_bg">#0B57D0</color>
+    <color name="m3_button_primary_fg">#FFFFFF</color>
+    <color name="m3_button_tonal_bg">#E9EEF6</color>
+    <color name="m3_button_tonal_fg">#0B57D0</color>
+
+    <!-- Status Badges -->
+    <color name="m3_badge_green_bg">#CEEAD6</color>
+    <color name="m3_badge_green_fg">#137333</color>
+    <color name="m3_badge_amber_bg">#FEF7E0</color>
+    <color name="m3_badge_amber_fg">#B06000</color>
+
+    <color name="m3_chip_bg">#E9EEF6</color>
+    <color name="m3_chip_fg">#041E49</color>
+
+    <color name="m3_outline">#74777F</color>
+    <color name="m3_outline_variant">#C4C7C5</color>
+    <color name="m3_divider">#E1E2EC</color>
+    <color name="m3_ripple">#1F000000</color>
+
+    <!-- Backward compatibility colors -->
+    <color name="colorPrimary_red">#F44336</color>
+    <color name="colorPrimaryDark_red">#F44336</color>
+    <color name="colorAccent_red">#FF4D3E</color>
+
+    <color name="colorPrimary_pink">#FB7299</color>
+    <color name="colorPrimaryDark_pink">#FB7299</color>
+    <color name="colorAccent_pink">#FF83AF</color>
+
+    <color name="colorPrimary_yellow">#ffb300</color>
+    <color name="colorPrimaryDark_yellow">#ffb300</color>
+    <color name="colorAccent_yellow">#ffc107</color>
+
+    <color name="colorPrimary_green">#4CAF50</color>
+    <color name="colorPrimaryDark_green">#4CAF50</color>
+    <color name="colorAccent_green">#66bb6a</color>
+
+    <color name="colorPrimary_teal">#00796b</color>
+    <color name="colorPrimaryDark_teal">#00796b</color>
+    <color name="colorAccent_teal">#00897b</color>
+
+    <color name="colorPrimary_blue">#2196F3</color>
+    <color name="colorPrimaryDark_blue">#2196F3</color>
+    <color name="colorAccent_blue">#25ACFF</color>
+
+    <color name="colorPrimary_violet">#9C27B0</color>
+    <color name="colorPrimaryDark_violet">#9C27B0</color>
+    <color name="colorAccent_violet">#B32CCA</color>
+
+    <color name="colorPrimary_black">#212121</color>
+    <color name="colorPrimaryDark_black">#212121</color>
+
+    <color name="faq_textColor_white">#f0f0f0</color>
+    <color name="faq_textColorSecondary_white">#6f6f6f</color>
+
+    <color name="faq_textColor_black">#202020</color>
+    <color name="faq_textColorSecondary_black">#818181</color>
+
+    <color name="item_background_color_light">#FFFFFF</color>
+    <color name="item_background_color_dark">#353535</color>
+
+    <color name="item_selected_background_color_light">#DDDDDD</color>
+    <color name="item_selected_background_color_dark">#454545</color>
+
+    <color name="cyanea_primary_reference">#008577</color>
+    <color name="cyanea_accent_reference">#D81B60</color>
+</resources>
