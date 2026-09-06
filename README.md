@@ -12,6 +12,9 @@ Crafted with **Material Design 3** (deeply aligned with Google Messages settings
 [中文版说明 (Chinese README)](./README-CN.md)
 
 ---
+<img width="1080" height="2378" alt="Screenshot_2026-09-06-23-33-22-63_4f37de8d56f93171bfc796a4ed20d7e4" src="https://github.com/user-attachments/assets/8692103a-9168-4d20-a96b-5d2d37e2386f" /><img width="1080" height="2378" alt="Screenshot_2026-09-06-23-33-43-86_4f37de8d56f93171bfc796a4ed20d7e4" src="https://github.com/user-attachments/assets/35489b24-9134-4e41-9014-da67b7476c3f" /><img width="1080" height="2378" alt="Screenshot_2026-09-06-23-33-48-96_4f37de8d56f93171bfc796a4ed20d7e4" src="https://github.com/user-attachments/assets/7dfa8d38-6d44-4353-b4ab-46b259e874bc" />
+
+
 
 ## ✨ Features
 
